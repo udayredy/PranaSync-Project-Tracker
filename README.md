@@ -1,33 +1,27 @@
-# PranaSync project tracker
+# PranaSync task tracker
 
-A standalone public task and branch tracker for the PranaSync team. GitHub status snapshot checked 2026-11-10.
+A public tracker for the PranaSync team with a work item list, assigned teammate, linked branch and PR, verified GitHub evidence, and three status sections.
 
 ## Open the tracker
 
-Live site: https://udayredy.github.io/PranaSync-Project-Tracker/
+Live site: https://udayredy.github.io/PranaSync-Project-Tracker/index.html
 
-The source is in `index.html` and `tracker.html`. Use the owner and status filters to narrow cards. Change a card’s workflow state to save it in that browser’s local storage. Those edits do not sync to GitHub.
+The list is grouped into **Done**, **In progress**, and **Next sprint**. Use search and filters to narrow it. The per-item stage menu and CSV export are available on the page. Stage edits are saved in that browser only; they do not update GitHub.
+
+## Stage mapping
+
+- **Done**: merged to `main` or the work is present on `main`.
+- **In progress**: merged to `feature/insight` or included in an open pull request.
+- **Next sprint**: no current branch/PR evidence of active work. No tasks in the checked snapshot met this condition.
+
+The simpler stage labels are mapped from the detailed GitHub state shown beside each item. Assignment and PR authorship remain separate facts.
 
 ## Project timeline
 
-The tracker covers the project from its start. The project start date is **October 1, 2026**, as specified by the user for the date the project was first pushed to the main repository. This is a user-provided timeline baseline; it is not independently confirmed as a Git commit author date. GitHub author-date search for 2026-10-01 returned no matching commit in the checked repository.
+The start date is **October 1, 2026**, the date the user specified as the main repository's project start. GitHub author-date search did not independently verify an Oct 1 commit; the date is shown as a user-provided timeline baseline.
 
-## Contents
+## Data sources and caveats
 
-- `index.html` — GitHub Pages entry point for the interactive task board
-- `tracker.html` — standalone copy of the interactive task board
-- `tasks.json` — task details, evidence notes, and project start-date provenance
-- `branches.csv` — live branch names and their mapped task/PR status
+Task ownership comes from the supplied current roles document. Branches and PR status were checked against GitHub. The supplied ZIP checkout is stale at `c57a815`; live `main` is `2cdc54d`. Uday’s 22 assigned paths match files on `main` or in open PR #11. PRs #7–9 are merged into `feature/insight`, not directly into `main`.
 
-## Progress meaning
-
-Progress is the Git workflow stage, not an estimate of effort or code quality. Merged-to-main is 100%, merged-to-integration-branch is 80%, and an open pull request is about 70%. A task with code on main but unclear PR lineage is labeled separately.
-
-## Source and attribution caveats
-
-The current task ownership comes from the current roles document in the supplied ZIP. Branches and PR state were checked on GitHub. The ZIP’s embedded Git checkout is stale at `c57a815` while live `main` is `2cdc54d`; its uncommitted status therefore does not mean those files still need pushing. Uday’s 22 currently assigned files match live `main` or open PR #11 exactly.
-
-Some PR authors differ from the current role assignments. The task cards preserve that distinction instead of treating assignment as proof of authorship. PRs #7–9 are merged into `feature/insight`, not directly into `main`.
-
-The tracker is kept separately from the PranaSync source repository.
-
+The tracker is separate from the PranaSync source repository.
