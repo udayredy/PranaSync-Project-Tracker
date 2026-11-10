@@ -1,0 +1,16 @@
+branch,mapped_owner,workstream,pull_request,verified_status,notes
+chore/repo-setup,Gavinnolla Tanusree Reddy,Repository setup,PR #1,Merged to main,
+docs/plan-and-limits,Uday / ownership needs reconciliation,Plan and limits docs,No PR found,Branch exists; verify status,Earlier work split assigns to Uday; current roles assign documentation to Sneha.
+docs/results-and-team,Gavinnolla Tanusree Reddy,Results and team docs,PR #3,Merged to main,
+docs/validation,Uday / ownership differs in current roles,Validation guide,PR #4,Merged to main,PR author is udayredy; current roles list validation documentation under Sneha.
+feature/analysis,Sindhu Padmaja Dudekula,Analysis and reference values,PR #9,Merged to feature/insight,
+feature/dashboard-ci,Gavinnolla Tanusree Reddy,Dashboard and CI checkpoint,PR #2,Merged to main,
+feature/data-pipeline,Sneha Gunturu,Data pipeline,PR #5,Merged to main,PR author is udayredy; keep author and assigned owner distinct.
+feature/insight,Uday Kumar Reddy Yarradoddi,Insight integration branch,PRs #7-9 target this branch,Branch exists; source is on main,
+feature/portal-api,Uday Kumar Reddy Yarradoddi,Portal API/authentication,PR #6,Merged to main,
+feature/portal-shell,Ownership needs reconciliation,Portal shell,No PR found,Branch exists; verify status,Earlier work split assigns to Uday; current roles place the web UI under Tanusree.
+feature/portal-tests-docs,Sindhu Padmaja Dudekula,Portal/reference tests and docs,PR #7,Merged to feature/insight,
+feature/postgres-db,Sneha Gunturu,PostgreSQL database,PR #10,Merged to main,
+feature/validation-script,Sindhu Padmaja Dudekula,Validation script,PR #8,Merged to feature/insight,
+fix/restore-ci-files,Gavinnolla Tanusree Reddy,"Final portal, QA and project-file restoration",PR #11,Open,Contains current roles/QA and portal files for multiple owners.
+main,Team default branch,Integrated project,Current HEAD 2cdc54d,Current default branch,Snapshot checked 2026-11-10.
