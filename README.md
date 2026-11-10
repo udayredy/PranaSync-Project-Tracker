@@ -1,18 +1,21 @@
 # PranaSync project tracker
 
-A standalone task and branch tracker for the PranaSync team. GitHub status snapshot checked 2026-11-10.
-
-## Project timeline
-
-The tracker covers the project from its start. The project start date is **October 1, 2026**, as specified by the user for the date the project was first pushed to the main repository. This is shown as a user-provided timeline baseline; it is not independently confirmed as a Git commit author date. GitHub author-date search for 2026-10-01 returned no matching commit in the checked repository.
+A standalone public task and branch tracker for the PranaSync team. GitHub status snapshot checked 2026-11-10.
 
 ## Open the tracker
 
-Open `tracker.html` in a browser. Use the owner/status filters to narrow the cards. Each card lets you change its workflow state; those edits are saved in that browser’s local storage. They do not sync to GitHub.
+Live site: https://udayredy.github.io/PranaSync-Project-Tracker/
+
+The source is in `index.html` and `tracker.html`. Use the owner and status filters to narrow cards. Change a card’s workflow state to save it in that browser’s local storage. Those edits do not sync to GitHub.
+
+## Project timeline
+
+The tracker covers the project from its start. The project start date is **October 1, 2026**, as specified by the user for the date the project was first pushed to the main repository. This is a user-provided timeline baseline; it is not independently confirmed as a Git commit author date. GitHub author-date search for 2026-10-01 returned no matching commit in the checked repository.
 
 ## Contents
 
-- `tracker.html` — offline interactive task board
+- `index.html` — GitHub Pages entry point for the interactive task board
+- `tracker.html` — standalone copy of the interactive task board
 - `tasks.json` — task details, evidence notes, and project start-date provenance
 - `branches.csv` — live branch names and their mapped task/PR status
 
@@ -27,3 +30,4 @@ The current task ownership comes from the current roles document in the supplied
 Some PR authors differ from the current role assignments. The task cards preserve that distinction instead of treating assignment as proof of authorship. PRs #7–9 are merged into `feature/insight`, not directly into `main`.
 
 The tracker is kept separately from the PranaSync source repository.
+
