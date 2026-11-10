@@ -1,44 +1,552 @@
 [
-{"id":"uday-auth","owner":"Uday Kumar Reddy Yarradoddi","task":"Patient API authentication and session security","branch":"feature/portal-api","status":"Done","files":["src/prana/api/server.py","src/prana/api/auth.py","src/prana/config.py","scripts/serve.py","scripts/create_users.py"],"note":"TEAM_ROLES assigns this API/sign-in work to Uday. Branch mapping comes from the archived team branch instructions; branch presence does not prove individual authorship."},
-{"id":"uday-insight-context","owner":"Uday Kumar Reddy Yarradoddi","task":"Link known patient context to detected scenarios","branch":"feature/insight","status":"Done","files":["src/prana/insight/context_linker.py"],"note":"One focused insight task: links history, notes, medication, family history, labs, and symptoms with timing relative to the pattern."},
-{"id":"uday-insight-evidence","owner":"Uday Kumar Reddy Yarradoddi","task":"Build evidence packs for findings","branch":"feature/insight","status":"Done","files":["src/prana/insight/evidence.py"],"note":"Separate output stage; preserves evidence supporting a scenario."},
-{"id":"uday-insight-explain","owner":"Uday Kumar Reddy Yarradoddi","task":"Explain detected findings in plain language","branch":"feature/insight","status":"Done","files":["src/prana/insight/explainer.py"],"note":"Separate explanation stage that consumes analysis results and context."},
-{"id":"uday-insight-missing","owner":"Uday Kumar Reddy Yarradoddi","task":"Identify missing measurements/data","branch":"feature/insight","status":"Done","files":["src/prana/insight/missing_data.py"],"note":"Distinct missing-data output stage."},
-{"id":"uday-insight-pipeline","owner":"Uday Kumar Reddy Yarradoddi","task":"Orchestrate the insight stages","branch":"feature/insight","status":"Done","files":["src/prana/insight/pipeline.py","src/prana/insight/__init__.py"],"note":"Integration task calling analysis, context, evidence, explanation, and missing-data components."},
-{"id":"uday-qa-fixtures","owner":"Uday Kumar Reddy Yarradoddi","task":"Shared QA fixtures and API behavior checks","branch":"fix/restore-ci-files","status":"In progress","files":["tests/conftest.py","tests/test_api.py"],"note":"TEAM_ROLES assigns QA automation to Uday. Current project-state notes place restoration work on this branch; status is a workflow estimate."},
-{"id":"uday-qa-security","owner":"Uday Kumar Reddy Yarradoddi","task":"Security regression checks","branch":"fix/restore-ci-files","status":"In progress","files":["tests/test_security.py"],"note":"Focused security test task, separate from API behavior checks."},
-{"id":"uday-qa-browser","owner":"Uday Kumar Reddy Yarradoddi","task":"End-to-end browser checks","branch":"fix/restore-ci-files","status":"In progress","files":["tests/test_e2e.py"],"note":"Browser-level workflow coverage; the UI itself is assigned to Tanusree."},
-{"id":"uday-qa-audit","owner":"Uday Kumar Reddy Yarradoddi","task":"Automated cohort and safety audit","branch":"feature/dashboard-ci","status":"Done","files":["scripts/qa_audit.py"],"note":"A separate audit deliverable from the unit/API/browser test suites."},
-{"id":"uday-qa-ci","owner":"Uday Kumar Reddy Yarradoddi","task":"Continuous integration and QA command wiring","branch":"feature/dashboard-ci","status":"Done","files":[".github/workflows/ci.yml","pytest.ini","Makefile","docs/QA_AUTOMATION.md","scripts/start_demo.py"],"note":"Role document assigns QA and demo launcher maintenance to Uday; docs also say Sneha keeps run/QA docs current. Ownership overlap is documented, not resolved by Git authorship."},
-{"id":"sneha-loader","owner":"Sneha Gunturu","task":"Map and load workbook data","branch":"feature/data-pipeline","status":"Done","files":["config/column_map.yaml","src/prana/data/loader.py","tests/test_loader.py"],"note":"Input mapping, loader implementation, and its targeted tests are kept together as this specific data-ingestion task."},
-{"id":"sneha-timeline","owner":"Sneha Gunturu","task":"Normalize patient measurements into timelines","branch":"feature/data-pipeline","status":"Done","files":["src/prana/data/timeline.py","src/prana/data/profiling.py"],"note":"Separate timeline/profiling task from workbook parsing."},
-{"id":"sneha-synthetic","owner":"Sneha Gunturu","task":"Generate repeatable synthetic patient workbooks","branch":"feature/data-pipeline","status":"Done","files":["src/prana/data/generate_synthetic.py"],"note":"Synthetic data support is separate from real workbook ingestion."},
-{"id":"sneha-batch","owner":"Sneha Gunturu","task":"Run the analysis pipeline over a workbook folder","branch":"feature/data-pipeline","status":"Done","files":["scripts/run_pipeline.py"],"note":"Batch runner writes patient insights and summary output and can save to the database."},
-{"id":"sneha-db-schema","owner":"Sneha Gunturu","task":"Persist patients, timelines, and findings","branch":"feature/postgres-db","status":"Done","files":["src/prana/data/db.py","tests/test_db.py"],"note":"Database layer plus its targeted tests."},
-{"id":"sneha-db-setup","owner":"Sneha Gunturu","task":"Initialize and run a local PostgreSQL database","branch":"feature/postgres-db","status":"Done","files":["scripts/init_db.py","scripts/pg_local.py"],"note":"Operational setup scripts, distinct from database persistence code."},
-{"id":"sneha-api-payload","owner":"Sneha Gunturu","task":"Build portal payloads from stored patient data","branch":"feature/portal-api","status":"Done","files":["src/prana/api/payload.py"],"note":"Data-to-API payload integration task; API server/auth are assigned to Uday in current TEAM_ROLES."},
-{"id":"sneha-run-docs","owner":"Sneha Gunturu","task":"Write setup and demo run instructions","branch":"docs/results-and-team","status":"Done","files":["README.md","docs/RUN_GUIDE.md","docs/DEMO_GUIDE.md","demo_windows.bat","demo_mac_linux.sh"],"note":"User-facing setup/demo documentation and launch scripts."},
-{"id":"sneha-system-docs","owner":"Sneha Gunturu","task":"Document architecture, AI/database flow, and limitations","branch":"docs/results-and-team","status":"Done","files":["docs/ARCHITECTURE.md","docs/AI_AND_DATABASE.md","docs/LIMITATIONS.md"],"note":"Three distinct documentation deliverables grouped by explanatory purpose."},
-{"id":"sneha-team-docs","owner":"Sneha Gunturu","task":"Maintain planning and team ownership documents","branch":"docs/results-and-team","status":"Done","files":["docs/PLAN_AND_DISCUSSION.md","docs/TEAM_ROLES.md","docs/TEAM_WORK_SPLIT.md","docs/TEAM_GITHUB_PLAN.md"],"note":"These documents describe planned assignments, which are not by themselves proof of who authored each file."},
-{"id":"sneha-demo-media","owner":"Sneha Gunturu","task":"Prepare demo presentation materials","branch":"docs/results-and-team","status":"Next sprint","files":["team_bundles/Sneha/demo_video.mp4","team_bundles/Sneha/demo_slides.pptx"],"note":"These paths are present only in the ZIP's team bundle, not at the project root. Confirm the exact bundle filenames before presenting them as shipped project artifacts."},
-{"id":"sindhu-method-config","owner":"Sindhu Padmaja Dudekula","task":"Configure scenarios and clinical reference ranges","branch":"feature/analysis","status":"In progress","files":["config/scenarios.yaml","config/reference_ranges.yaml"],"note":"Current TEAM_ROLES assigns method/configuration to Sindhu."},
-{"id":"sindhu-baseline","owner":"Sindhu Padmaja Dudekula","task":"Calculate patient baselines","branch":"feature/analysis","status":"In progress","files":["src/prana/analysis/baseline.py"],"note":"Distinct statistical baseline component."},
-{"id":"sindhu-patterns","owner":"Sindhu Padmaja Dudekula","task":"Detect multi-signal patterns","branch":"feature/analysis","status":"In progress","files":["src/prana/analysis/patterns.py"],"note":"Pattern detection is a separate method component."},
-{"id":"sindhu-reference","owner":"Sindhu Padmaja Dudekula","task":"Classify measurements against reference levels","branch":"feature/analysis","status":"In progress","files":["src/prana/analysis/reference.py","tests/test_analysis.py","tests/test_reference.py"],"note":"Method code and focused tests; check test file ownership with the role document before claiming exclusive authorship."},
-{"id":"sindhu-forecast","owner":"Sindhu Padmaja Dudekula","task":"Forecast strong measurement trends","branch":"feature/analysis","status":"In progress","files":["src/prana/ai/forecast.py","src/prana/ai/outlook.py"],"note":"TEAM_ROLES assigns both prediction files to Sindhu; forecast.py header also names Sindhu."},
-{"id":"sindhu-risk","owner":"Sindhu Padmaja Dudekula","task":"Calculate heart and diabetes risk scores","branch":"feature/analysis","status":"In progress","files":["src/prana/ai/risk.py"],"note":"TEAM_ROLES assigns risk.py to Sindhu, but its source header says owner Uday, checked by Sindhu. Treat this as a documented assignment conflict, not verified sole authorship."},
-{"id":"sindhu-recommendations","owner":"Sindhu Padmaja Dudekula","task":"Configure recommendation rules and wording","branch":"feature/analysis","status":"In progress","files":["src/prana/ai/recommend.py","config/recommendations.yaml"],"note":"TEAM_ROLES assigns these to Sindhu, but recommend.py source header says owner Uday. Keep the conflict visible."},
-{"id":"sindhu-validation","owner":"Sindhu Padmaja Dudekula","task":"Run clinical rule and forecast validation","branch":"feature/validation-script","status":"In progress","files":["scripts/validate.py","scripts/backtest_forecast.py","docs/VALIDATION.md","docs/REFERENCE_VALUES.md"],"note":"Validation scripts/guides are distinct from prediction implementation. Current role docs assign these to Sindhu; historical branch notes also list docs/validation under Sneha, so assignment records differ."},
-{"id":"sindhu-tests","owner":"Sindhu Padmaja Dudekula","task":"Test method, insight, reference, and AI behavior","branch":"feature/portal-tests-docs","status":"In progress","files":["tests/test_insight.py","tests/test_ai.py"],"note":"test_ai.py is split by test functions across forecast/risk/suggestions and chatbot work; the file cannot be uniquely assigned based on the filename alone."},
-{"id":"tanusree-portal-shell","owner":"Gavinnolla Tanusree Reddy","task":"Build portal page shell and core client routing","branch":"feature/portal-shell","status":"In progress","files":["web/index.html","web/js/app.js","web/js/ui.js"],"note":"UI/UX assignment from current TEAM_ROLES; branch exists but completion on main is not established in the snapshot."},
-{"id":"tanusree-record","owner":"Gavinnolla Tanusree Reddy","task":"Render patient record and at-a-glance overview","branch":"feature/portal-shell","status":"In progress","files":["web/js/record.js","web/js/glance.js"],"note":"Separate portal page behavior from landing and account flows."},
-{"id":"tanusree-outlook","owner":"Gavinnolla Tanusree Reddy","task":"Render trends, outlook, and method views","branch":"feature/portal-shell","status":"In progress","files":["web/js/outlook.js","web/js/charts.js","web/js/method.js"],"note":"Presentation layer displays outputs from analytics owned by other teammates; do not claim underlying analysis calculations."},
-{"id":"tanusree-account","owner":"Gavinnolla Tanusree Reddy","task":"Build landing, sign-in, and account experience","branch":"feature/portal-shell","status":"In progress","files":["web/js/landing.js","web/js/login.js","web/js/account.js","web/js/bg.js","web/js/fx.js","web/js/theme-init.js"],"note":"UI contribution; backend authentication is assigned to Uday."},
-{"id":"tanusree-style","owner":"Gavinnolla Tanusree Reddy","task":"Implement responsive visual styles and assets","branch":"feature/portal-shell","status":"In progress","files":["web/css/app.css","web/css/theme.css","web/css/landing.css","web/img/"],"note":"Visual styling and image asset area."},
-{"id":"tanusree-chat-ui","owner":"Gavinnolla Tanusree Reddy","task":"Build the patient-facing assistant panel","branch":"feature/portal-shell","status":"In progress","files":["web/js/chat.js"],"note":"The panel is front end; answer generation is implemented server-side in the chat module."},
-{"id":"tanusree-chat-tests","owner":"Gavinnolla Tanusree Reddy","task":"Cover assistant safety and question flows","branch":"feature/portal-tests-docs","status":"In progress","files":["tests/test_ai.py"],"note":"Only chatbot-related test functions are associated with Tanusree; the shared test file also contains analytics/risk tests."},
-{"id":"tanusree-usability","owner":"Gavinnolla Tanusree Reddy","task":"Conduct usability sessions and record fixes","branch":"feature/portal-tests-docs","status":"Next sprint","files":["team_bundles/Tanusree/usability_script.md","team_bundles/Tanusree/usability_tasks.md","team_bundles/Tanusree/usability_results.md","team_bundles/Tanusree/usability_fixes.md"],"note":"Usability study deliverables are listed in the role doc; inspect bundle paths before citing specific artifacts."},
-{"id":"tanusree-chat-engine","owner":"Gavinnolla Tanusree Reddy","task":"Route assistant questions and constrain optional LLM rewording","branch":"feature/analysis","status":"Done","files":["src/prana/ai/chat.py","src/prana/ai/llm.py"],"note":"Current TEAM_ROLES assigns conversational AI to Tanusree, but chat.py source header says Uday; llm.py header says Tanusree. Treat chat.py owner as disputed."},
-{"id":"tanusree-chat-next","owner":"Gavinnolla Tanusree Reddy","task":"Record a real-key language-model check","branch":"feature/portal-tests-docs","status":"Next sprint","files":["src/prana/ai/llm.py"],"note":"TEAM_ROLES lists a real-key check as a deliverable; no verification artifact in the ZIP establishes it was performed."}
+  {
+    "id": "uday-auth",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Patient API authentication and session security",
+    "branch": "feature/portal-api",
+    "status": "Done",
+    "files": [
+      "src/prana/api/server.py",
+      "src/prana/api/auth.py",
+      "src/prana/config.py",
+      "scripts/serve.py",
+      "scripts/create_users.py"
+    ],
+    "note": "TEAM_ROLES assigns this API/sign-in work to Uday. Branch mapping comes from the archived team branch instructions; branch presence does not prove individual authorship."
+  },
+  {
+    "id": "uday-insight-context",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Link known patient context to detected scenarios",
+    "branch": "feature/insight",
+    "status": "Done",
+    "files": [
+      "src/prana/insight/context_linker.py"
+    ],
+    "note": "One focused insight task: links history, notes, medication, family history, labs, and symptoms with timing relative to the pattern."
+  },
+  {
+    "id": "uday-insight-evidence",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Build evidence packs for findings",
+    "branch": "feature/insight",
+    "status": "Done",
+    "files": [
+      "src/prana/insight/evidence.py"
+    ],
+    "note": "Separate output stage; preserves evidence supporting a scenario."
+  },
+  {
+    "id": "uday-insight-explain",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Explain detected findings in plain language",
+    "branch": "feature/insight",
+    "status": "Done",
+    "files": [
+      "src/prana/insight/explainer.py"
+    ],
+    "note": "Separate explanation stage that consumes analysis results and context."
+  },
+  {
+    "id": "uday-insight-missing",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Identify missing measurements/data",
+    "branch": "feature/insight",
+    "status": "Done",
+    "files": [
+      "src/prana/insight/missing_data.py"
+    ],
+    "note": "Distinct missing-data output stage."
+  },
+  {
+    "id": "uday-insight-pipeline",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Orchestrate the insight stages",
+    "branch": "feature/insight",
+    "status": "Done",
+    "files": [
+      "src/prana/insight/pipeline.py",
+      "src/prana/insight/__init__.py"
+    ],
+    "note": "Integration task calling analysis, context, evidence, explanation, and missing-data components."
+  },
+  {
+    "id": "uday-qa-fixtures",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Shared QA fixtures and API behavior checks",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "tests/conftest.py",
+      "tests/test_api.py"
+    ],
+    "note": "TEAM_ROLES assigns QA automation to Uday. Current project-state notes place restoration work on this branch; status is a workflow estimate."
+  },
+  {
+    "id": "uday-qa-security",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Security regression checks",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "tests/test_security.py"
+    ],
+    "note": "Focused security test task, separate from API behavior checks."
+  },
+  {
+    "id": "uday-qa-browser",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "End-to-end browser checks",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "tests/test_e2e.py"
+    ],
+    "note": "Browser-level workflow coverage; the UI itself is assigned to Tanusree."
+  },
+  {
+    "id": "uday-qa-audit",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Automated cohort and safety audit",
+    "branch": "fix/restore-ci-files",
+    "status": "Done",
+    "files": [
+      "scripts/qa_audit.py"
+    ],
+    "note": "A separate audit deliverable from the unit/API/browser test suites."
+  },
+  {
+    "id": "uday-qa-ci",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Continuous integration and QA command wiring",
+    "branch": "fix/restore-ci-files",
+    "status": "Done",
+    "files": [
+      ".github/workflows/ci.yml",
+      "pytest.ini",
+      "Makefile",
+      "docs/QA_AUTOMATION.md",
+      "scripts/start_demo.py"
+    ],
+    "note": "Role document assigns QA and demo launcher maintenance to Uday; docs also say Sneha keeps run/QA docs current. Ownership overlap is documented, not resolved by Git authorship."
+  },
+  {
+    "id": "sneha-loader",
+    "owner": "Sneha Gunturu",
+    "task": "Map and load workbook data",
+    "branch": "feature/data-pipeline",
+    "status": "Done",
+    "files": [
+      "config/column_map.yaml",
+      "src/prana/data/loader.py",
+      "tests/test_loader.py"
+    ],
+    "note": "Input mapping, loader implementation, and its targeted tests are kept together as this specific data-ingestion task."
+  },
+  {
+    "id": "sneha-timeline",
+    "owner": "Sneha Gunturu",
+    "task": "Normalize patient measurements into timelines",
+    "branch": "feature/data-pipeline",
+    "status": "Done",
+    "files": [
+      "src/prana/data/timeline.py",
+      "src/prana/data/profiling.py"
+    ],
+    "note": "Separate timeline/profiling task from workbook parsing."
+  },
+  {
+    "id": "sneha-synthetic",
+    "owner": "Sneha Gunturu",
+    "task": "Generate repeatable synthetic patient workbooks",
+    "branch": "feature/data-pipeline",
+    "status": "Done",
+    "files": [
+      "src/prana/data/generate_synthetic.py"
+    ],
+    "note": "Synthetic data support is separate from real workbook ingestion."
+  },
+  {
+    "id": "sneha-batch",
+    "owner": "Sneha Gunturu",
+    "task": "Run the analysis pipeline over a workbook folder",
+    "branch": "feature/data-pipeline",
+    "status": "Done",
+    "files": [
+      "scripts/run_pipeline.py"
+    ],
+    "note": "Batch runner writes patient insights and summary output and can save to the database."
+  },
+  {
+    "id": "sneha-db-schema",
+    "owner": "Sneha Gunturu",
+    "task": "Persist patients, timelines, and findings",
+    "branch": "feature/postgres-db",
+    "status": "Done",
+    "files": [
+      "src/prana/data/db.py",
+      "tests/test_db.py"
+    ],
+    "note": "Database layer plus its targeted tests."
+  },
+  {
+    "id": "sneha-db-setup",
+    "owner": "Sneha Gunturu",
+    "task": "Initialize and run a local PostgreSQL database",
+    "branch": "feature/postgres-db",
+    "status": "Done",
+    "files": [
+      "scripts/init_db.py",
+      "scripts/pg_local.py"
+    ],
+    "note": "Operational setup scripts, distinct from database persistence code."
+  },
+  {
+    "id": "sneha-api-payload",
+    "owner": "Sneha Gunturu",
+    "task": "Build portal payloads from stored patient data",
+    "branch": "feature/portal-api",
+    "status": "Done",
+    "files": [
+      "src/prana/api/payload.py"
+    ],
+    "note": "Data-to-API payload integration task; API server/auth are assigned to Uday in current TEAM_ROLES."
+  },
+  {
+    "id": "sneha-run-docs",
+    "owner": "Sneha Gunturu",
+    "task": "Write setup and demo run instructions",
+    "branch": "docs/results-and-team",
+    "status": "Done",
+    "files": [
+      "README.md",
+      "docs/RUN_GUIDE.md",
+      "docs/DEMO_GUIDE.md",
+      "demo_windows.bat",
+      "demo_mac_linux.sh"
+    ],
+    "note": "User-facing setup/demo documentation and launch scripts."
+  },
+  {
+    "id": "sneha-system-docs",
+    "owner": "Sneha Gunturu",
+    "task": "Document architecture, AI/database flow, and limitations",
+    "branch": "docs/results-and-team",
+    "status": "Done",
+    "files": [
+      "docs/ARCHITECTURE.md",
+      "docs/AI_AND_DATABASE.md",
+      "docs/LIMITATIONS.md"
+    ],
+    "note": "Three distinct documentation deliverables grouped by explanatory purpose."
+  },
+  {
+    "id": "sneha-team-docs",
+    "owner": "Sneha Gunturu",
+    "task": "Maintain planning and team ownership documents",
+    "branch": "docs/results-and-team",
+    "status": "Done",
+    "files": [
+      "docs/TEAM_ROLES.md",
+      "docs/TEAM_WORK_SPLIT.md",
+      "docs/TEAM_GITHUB_PLAN.md"
+    ],
+    "note": "These documents describe planned assignments, which are not by themselves proof of who authored each file."
+  },
+  {
+    "id": "sindhu-method-config",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Configure scenarios and clinical reference ranges",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "config/scenarios.yaml",
+      "config/reference_ranges.yaml"
+    ],
+    "note": "Current TEAM_ROLES assigns method/configuration to Sindhu."
+  },
+  {
+    "id": "sindhu-baseline",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Calculate patient baselines",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/analysis/baseline.py"
+    ],
+    "note": "Distinct statistical baseline component."
+  },
+  {
+    "id": "sindhu-patterns",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Detect multi-signal patterns",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/analysis/patterns.py"
+    ],
+    "note": "Pattern detection is a separate method component."
+  },
+  {
+    "id": "sindhu-reference",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Classify measurements against reference levels",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/analysis/reference.py",
+      "tests/test_analysis.py",
+      "tests/test_reference.py"
+    ],
+    "note": "Method code and focused tests; check test file ownership with the role document before claiming exclusive authorship."
+  },
+  {
+    "id": "sindhu-forecast",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Forecast strong measurement trends",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/ai/forecast.py",
+      "src/prana/ai/outlook.py"
+    ],
+    "note": "TEAM_ROLES assigns both prediction files to Sindhu; forecast.py header also names Sindhu."
+  },
+  {
+    "id": "sindhu-risk",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Calculate heart and diabetes risk scores",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/ai/risk.py"
+    ],
+    "note": "TEAM_ROLES assigns risk.py to Sindhu, but its source header says owner Uday, checked by Sindhu. Treat this as a documented assignment conflict, not verified sole authorship."
+  },
+  {
+    "id": "sindhu-recommendations",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Configure recommendation rules and wording",
+    "branch": "feature/analysis",
+    "status": "In progress",
+    "files": [
+      "src/prana/ai/recommend.py",
+      "config/recommendations.yaml"
+    ],
+    "note": "TEAM_ROLES assigns these to Sindhu, but recommend.py source header says owner Uday. Keep the conflict visible."
+  },
+  {
+    "id": "sindhu-validation",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Run clinical rule and forecast validation",
+    "branch": "feature/validation-script",
+    "status": "In progress",
+    "files": [
+      "scripts/validate.py",
+      "scripts/backtest_forecast.py"
+    ],
+    "note": "Validation scripts/guides are distinct from prediction implementation. Current role docs assign these to Sindhu; historical branch notes also list docs/validation under Sneha, so assignment records differ."
+  },
+  {
+    "id": "sindhu-tests",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Test method, insight, reference, and AI behavior",
+    "branch": "feature/portal-tests-docs",
+    "status": "In progress",
+    "files": [
+      "tests/test_insight.py",
+      "tests/test_ai.py"
+    ],
+    "note": "test_ai.py is split by test functions across forecast/risk/suggestions and chatbot work; the file cannot be uniquely assigned based on the filename alone."
+  },
+  {
+    "id": "tanusree-portal-shell",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Build portal page shell and core client routing",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/index.html",
+      "web/js/app.js",
+      "web/js/ui.js"
+    ],
+    "note": "UI/UX assignment from current TEAM_ROLES; branch exists but completion on main is not established in the snapshot."
+  },
+  {
+    "id": "tanusree-record",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Render patient record and at-a-glance overview",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/js/record.js",
+      "web/js/glance.js"
+    ],
+    "note": "Separate portal page behavior from landing and account flows."
+  },
+  {
+    "id": "tanusree-outlook",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Render trends, outlook, and method views",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/js/outlook.js",
+      "web/js/charts.js",
+      "web/js/method.js"
+    ],
+    "note": "Presentation layer displays outputs from analytics owned by other teammates; do not claim underlying analysis calculations."
+  },
+  {
+    "id": "tanusree-account",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Build landing, sign-in, and account experience",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/js/landing.js",
+      "web/js/login.js",
+      "web/js/account.js",
+      "web/js/bg.js",
+      "web/js/fx.js",
+      "web/js/theme-init.js",
+      "web/js/hero.js"
+    ],
+    "note": "UI contribution; backend authentication is assigned to Uday."
+  },
+  {
+    "id": "tanusree-style",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Implement responsive visual styles and assets",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/css/app.css",
+      "web/css/theme.css",
+      "web/css/landing.css",
+      "web/img/"
+    ],
+    "note": "Visual styling and image asset area."
+  },
+  {
+    "id": "tanusree-chat-ui",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Build the patient-facing assistant panel",
+    "branch": "fix/restore-ci-files",
+    "status": "In progress",
+    "files": [
+      "web/js/chat.js"
+    ],
+    "note": "The panel is front end; answer generation is implemented server-side in the chat module."
+  },
+  {
+    "id": "tanusree-chat-tests",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Cover assistant safety and question flows",
+    "branch": "feature/portal-tests-docs",
+    "status": "In progress",
+    "files": [
+      "tests/test_ai.py"
+    ],
+    "note": "Only chatbot-related test functions are associated with Tanusree; the shared test file also contains analytics/risk tests."
+  },
+  {
+    "id": "tanusree-usability",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Conduct usability sessions and record fixes",
+    "branch": "feature/portal-tests-docs",
+    "status": "Next sprint",
+    "files": [],
+    "note": "TEAM_ROLES lists usability sessions, script, tasks, results, and fixes as deliverables. No usability artifacts were found in the supplied ZIP."
+  },
+  {
+    "id": "tanusree-chat-engine",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Route assistant questions and constrain optional LLM rewording",
+    "branch": "main",
+    "status": "Done",
+    "files": [
+      "src/prana/ai/chat.py",
+      "src/prana/ai/llm.py"
+    ],
+    "note": "Current TEAM_ROLES assigns conversational AI to Tanusree, but chat.py source header says Uday; llm.py header says Tanusree. Files are present in main; branch presence does not establish authorship."
+  },
+  {
+    "id": "tanusree-chat-next",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Record a real-key language-model check",
+    "branch": "feature/portal-tests-docs",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/ai/llm.py"
+    ],
+    "note": "TEAM_ROLES lists a real-key check as a deliverable; no verification artifact in the ZIP establishes it was performed."
+  },
+  {
+    "id": "sneha-demo-media",
+    "owner": "Sneha Gunturu",
+    "task": "Prepare the demo video",
+    "branch": "docs/results-and-team",
+    "status": "Done",
+    "files": [
+      "team_bundles/PranaSync_Demo_Video.mp4"
+    ],
+    "note": "TEAM_ROLES assigns the demo video to Sneha. The ZIP contains this shared team_bundles video path; no commit authorship is inferred."
+  },
+  {
+    "id": "sneha-demo-slides",
+    "owner": "Sneha Gunturu",
+    "task": "Prepare the demo slides",
+    "branch": "docs/results-and-team",
+    "status": "Next sprint",
+    "files": [],
+    "note": "TEAM_ROLES assigns slides to Sneha, but no slide deck file was found in the supplied ZIP."
+  },
+  {
+    "id": "tanusree-dashboard",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Build the dashboard checkpoint prototype",
+    "branch": "feature/dashboard-ci",
+    "status": "Done",
+    "files": [
+      "team_bundles/Tanusree/dashboard/app.py",
+      "team_bundles/Tanusree/.streamlit/config.toml"
+    ],
+    "note": "These checkpoint dashboard files exist only in the team bundle, not the project-root portal. Keep this separate from the production web UI task."
+  },
+  {
+    "id": "sneha-plan-doc",
+    "owner": "Sneha Gunturu",
+    "task": "Document project plan and discussion",
+    "branch": "docs/plan-and-limits",
+    "status": "In progress",
+    "files": [
+      "docs/PLAN_AND_DISCUSSION.md"
+    ],
+    "note": "Current TEAM_ROLES assigns documentation to Sneha; historical branch instructions map docs/plan-and-limits to Uday. Branch exists without completion on main confirmed."
+  },
+  {
+    "id": "sindhu-validation-docs",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Publish validation and reference-value guidance",
+    "branch": "docs/validation",
+    "status": "Done",
+    "files": [
+      "docs/VALIDATION.md",
+      "docs/REFERENCE_VALUES.md"
+    ],
+    "note": "Current TEAM_ROLES assigns these docs to Sindhu; historical branch notes list docs/validation under Sneha. The assignment differs from historical branch mapping."
+  },
+  {
+    "id": "tanusree-repo-setup",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Set up repository ignore rules",
+    "branch": "chore/repo-setup",
+    "status": "Done",
+    "files": [
+      ".gitignore"
+    ],
+    "note": "Historical branch notes map repository setup to Tanusree. The current role document does not separately assign the root ignore file."
+  }
 ]
 
