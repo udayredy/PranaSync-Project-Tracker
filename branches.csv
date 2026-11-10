@@ -1,17 +1,17 @@
-branch,teammate,work_item_count,workflow_stage
-chore/repo-setup,Tanusree,0,Done
-docs/plan-and-limits,Uday / assignment differs,0,In progress
-docs/results-and-team,Sneha,4,Done
-docs/validation,Sneha in historical branch notes; Sindhu in current role doc,1,Done
-feature/analysis,Sindhu; chat engine assignment conflict,9,In progress
-feature/dashboard-ci,Uday,2,Done
-feature/data-pipeline,Sneha,4,Done
-feature/insight,Uday,5,Done
-feature/portal-api,Sneha payload; Uday API/auth,2,Done
-feature/portal-shell,Tanusree,6,In progress
-feature/portal-tests-docs,Tanusree UI/usability; Sindhu analytics tests,4,In progress
-feature/postgres-db,Sneha,2,Done
-feature/validation-script,Sindhu,1,In progress
-fix/restore-ci-files,Uday,3,In progress
-main,Shared project baseline,0,Done
+"branch","teammate","work_item_count","workflow_stage","notes"
+"chore/repo-setup","Gavinnolla Tanusree Reddy","1","Done",""
+"docs/plan-and-limits","Sneha Gunturu","1","In progress","Historical branch instructions assign this area to Uday; current role file task is assigned to Sneha."
+"docs/results-and-team","Sneha Gunturu","5","Done; Next sprint","Historical branch notes map to Tanusree; current docs role assigns files to Sneha."
+"docs/validation","Sindhu Padmaja Dudekula","1","Done","Historical branch notes map to Sneha; current role files are assigned to Sindhu."
+"feature/analysis","Sindhu Padmaja Dudekula","7","In progress",""
+"feature/dashboard-ci","Gavinnolla Tanusree Reddy","1","Done",""
+"feature/data-pipeline","Sneha Gunturu","4","Done",""
+"feature/insight","Uday Kumar Reddy Yarradoddi","5","Done",""
+"feature/portal-api","Uday Kumar Reddy Yarradoddi; Sneha Gunturu","2","Done",""
+"feature/portal-shell","Uday Kumar Reddy Yarradoddi","0","Branch listed; no task row","Branch is listed in historical Uday instructions; no current task row is mapped to it."
+"feature/portal-tests-docs","Sindhu Padmaja Dudekula; Gavinnolla Tanusree Reddy","4","In progress; Next sprint",""
+"feature/postgres-db","Sneha Gunturu","2","Done",""
+"feature/validation-script","Sindhu Padmaja Dudekula","1","In progress",""
+"fix/restore-ci-files","Uday Kumar Reddy Yarradoddi; Gavinnolla Tanusree Reddy","11","In progress; Done",""
+"main","Gavinnolla Tanusree Reddy","1","Done",""
 
