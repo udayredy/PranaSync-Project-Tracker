@@ -3,8 +3,8 @@
 <style>
 :root{color-scheme:dark;--bg:#0b1017;--panel:#141d28;--line:#293748;--text:#edf3f9;--muted:#9eacbb;--blue:#76b9ff;--amber:#f0c36b}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,Segoe UI,sans-serif}.wrap{max-width:1380px;margin:auto;padding:26px 20px 54px}header{display:flex;justify-content:space-between;gap:18px}h1{font-size:clamp(30px,4vw,44px);margin:4px 0}p,.muted{color:var(--muted)}.snapshot,.stat,.filters{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:12px}.snapshot{min-width:230px;font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin:18px 0}.stat strong{display:block;font-size:22px}.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end}.field{display:grid;gap:4px}.field label{font-size:11px;color:var(--muted)}input,select,button{background:var(--bg);color:var(--text);border:1px solid var(--line);border-radius:7px;padding:8px;font:inherit}button{cursor:pointer}.notice{border-left:3px solid var(--amber);padding:10px;margin:12px 0;background:#211e17}.stage{margin:24px 0}.stage h2{border-bottom:1px solid var(--line);padding-bottom:7px}.tablebox{overflow:auto;border:1px solid var(--line);border-radius:9px}table{width:100%;min-width:1000px;border-collapse:collapse;background:var(--panel)}th,td{text-align:left;vertical-align:top;padding:10px;border-bottom:1px solid var(--line)}th{font-size:11px;text-transform:uppercase;color:var(--muted);background:#192330}a{color:var(--blue);text-decoration:none}.files{max-width:350px}.files summary{cursor:pointer;color:var(--blue)}.files li{font:12px/1.6 ui-monospace,Consolas,monospace;overflow-wrap:anywhere}.note{max-width:390px;color:var(--muted);font-size:12px}.task{font-weight:650}.footer{border-top:1px solid var(--line);margin-top:25px;padding-top:12px;color:var(--muted);font-size:12px}@media(max-width:700px){header{display:block}.stats{grid-template-columns:repeat(2,1fr)}}
 </style></head><body><main class="wrap">
-<header><div><div style="color:var(--blue);text-transform:uppercase;letter-spacing:.12em;font-size:12px">PranaSync · task breakdown</div><h1>Work items, files, owners, branches</h1><p>Each row is a distinct task split from the ZIP role breakdown. Expand the file list to see concrete outputs. Branch links open the matching branch in the original repository.</p></div><div class="snapshot"><b>Project start</b>October 1, 2026<br><small>User-provided date; Git author date was not independently confirmed.</small><b>ZIP snapshot</b>PranaSync Final.zip</div></header>
-<section class="stats" id="stats"></section><div class="notice"><b>Ownership:</b> teammate assignments come from the ZIP role document, not proof of line authorship. Notes identify role/source-header conflicts. “Done” reflects the tracker snapshot; “In progress” means work is not confirmed complete on main; “Next sprint” denotes a planned deliverable without completion evidence.</div>
+<header><div><div style="color:var(--blue);text-transform:uppercase;letter-spacing:.12em;font-size:12px">PranaSync · task breakdown</div><h1>Work items, files, owners, branches</h1><p>Each row is a distinct work item from PranaSync_Final_Project.zip. Expand its file list to see verified archive paths. Branch links appear only when the archived plans document a branch.</p></div><div class="snapshot"><b>Project start</b>October 1, 2026<br><small>User-provided date; Git author date was not independently confirmed.</small><b>ZIP snapshot</b>PranaSync Final.zip</div></header>
+<section class="stats" id="stats"></section><div class="notice"><b>Ownership:</b> teammate assignments come from the ZIP role document, not proof of line authorship. Notes identify role/source-header conflicts. “Done” means the archive contains the deliverable or its report records completion; “In progress” means the code exists but the final task list calls for more work; “Next sprint” means the task list says the work remains. The archive has no Git metadata, so newer-phase tasks have no branch link unless the plans name one.</div>
 <section class="filters"><div class="field"><label>Search</label><input id="q" placeholder="Task, file, teammate, branch"></div><div class="field"><label>Teammate</label><select id="who"><option value="">All teammates</option></select></div><div class="field"><label>Progress</label><select id="sf"><option value="">All progress</option><option>Done</option><option>In progress</option><option>Next sprint</option></select></div><button id="export">Download visible CSV</button><button id="reset">Reset local status edits</button></section>
 <div id="lists"></div><footer class="footer">Separate public tracker: <a href="https://github.com/udayredy/PranaSync-Project-Tracker">udayredy/PranaSync-Project-Tracker</a>. Status edits are local to this browser and do not update the shared tracker. Branch names only.</footer>
 <script id="seed" type="application/json">[
@@ -466,7 +466,7 @@
     "branch": "feature/portal-tests-docs",
     "status": "Next sprint",
     "files": [],
-    "note": "TEAM_ROLES lists usability sessions, script, tasks, results, and fixes as deliverables. No usability artifacts were found in the supplied ZIP."
+    "note": "TEAM_TASKS lists a 3–5 person usability study as outstanding; no completed study report appears in the archive."
   },
   {
     "id": "tanusree-chat-engine",
@@ -492,36 +492,18 @@
     "note": "TEAM_ROLES lists a real-key check as a deliverable; no verification artifact in the ZIP establishes it was performed."
   },
   {
-    "id": "sneha-demo-media",
-    "owner": "Sneha Gunturu",
-    "task": "Prepare the demo video",
-    "branch": "docs/results-and-team",
-    "status": "Done",
-    "files": [
-      "team_bundles/PranaSync_Demo_Video.mp4"
-    ],
-    "note": "TEAM_ROLES assigns the demo video to Sneha. The ZIP contains this shared team_bundles video path; no commit authorship is inferred."
-  },
-  {
     "id": "sneha-demo-slides",
     "owner": "Sneha Gunturu",
-    "task": "Prepare the demo slides",
+    "task": "Bring demo presentation materials up to date",
     "branch": "docs/results-and-team",
-    "status": "Next sprint",
-    "files": [],
-    "note": "TEAM_ROLES assigns slides to Sneha, but no slide deck file was found in the supplied ZIP."
-  },
-  {
-    "id": "tanusree-dashboard",
-    "owner": "Gavinnolla Tanusree Reddy",
-    "task": "Build the dashboard checkpoint prototype",
-    "branch": "feature/dashboard-ci",
-    "status": "Done",
+    "status": "In progress",
     "files": [
-      "team_bundles/Tanusree/dashboard/app.py",
-      "team_bundles/Tanusree/.streamlit/config.toml"
+      "docs/PranaSync_Client_Presentation.pptx",
+      "docs/PranaSync_Pitch_Deck.pptx",
+      "docs/PRESENTATION_SCRIPT_10MIN.md",
+      "docs/DEMO_SCRIPT_TEAM.md"
     ],
-    "note": "These checkpoint dashboard files exist only in the team bundle, not the project-root portal. Keep this separate from the production web UI task."
+    "note": "These materials exist in the archive, but TEAM_TASKS says they predate document uploads, review and the clinical view and need updating."
   },
   {
     "id": "sneha-plan-doc",
@@ -556,11 +538,531 @@
       ".gitignore"
     ],
     "note": "Historical branch notes map repository setup to Tanusree. The current role document does not separately assign the root ignore file."
+  },
+  {
+    "id": "uday-api-new-surfaces",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Expose account, analytics, and risk API routes",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/api/account_routes.py",
+      "src/prana/api/analytics.py",
+      "src/prana/api/analytics_routes.py",
+      "src/prana/api/risk_routes.py",
+      "src/prana/api/server.py"
+    ],
+    "note": "These endpoint modules are present in the archive. The final-phase role doc assigns backend and security to Uday; the ZIP does not record a branch for this expanded work."
+  },
+  {
+    "id": "uday-expanded-qa",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Add automated coverage for expanded portal flows",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "tests/test_e2e.py",
+      "tests/test_e2e_analytics.py",
+      "tests/test_security_phase9.py",
+      "tests/test_account.py"
+    ],
+    "note": "The tests are present. TEAM_TASKS says 21 tests remain skipped and calls for upload, review/correction, clinical-view, and account-edit browser coverage."
+  },
+  {
+    "id": "sneha-docstore",
+    "owner": "Sneha Gunturu",
+    "task": "Persist uploaded documents and assessment records",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/data/docstore.py",
+      "src/prana/ai/assessment_store.py",
+      "tests/test_document_store.py",
+      "tests/test_assessment_store_pg.py"
+    ],
+    "note": "These storage and test files are present in the archive. The current role docs assign data and database work to Sneha; no branch is specified for this expanded phase."
+  },
+  {
+    "id": "sneha-knowledge-sources",
+    "owner": "Sneha Gunturu",
+    "task": "Maintain the medical knowledge source catalogue",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "config/knowledge_sources.yaml",
+      "data/knowledge/manifest.yaml",
+      "scripts/fetch_medical_sources.py",
+      "scripts/fetch_who_factsheets.py",
+      "scripts/ingest_knowledge.py",
+      "tests/test_knowledge.py"
+    ],
+    "note": "The source catalogue and ingestion files exist. TEAM_TASKS assigns Sneha the gap-filling and source sign-off work; clinician review and licence/date checks remain outstanding."
+  },
+  {
+    "id": "sindhu-risk-model",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Build the risk model and its feature pipeline",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/risk/features.py",
+      "src/prana/risk/model.py",
+      "src/prana/risk/params.py",
+      "src/prana/risk/service.py",
+      "scripts/build_risk_table.py",
+      "scripts/train_risk_model.py",
+      "data/risk/training_table.csv"
+    ],
+    "note": "These model and training artifacts are present. Role-level assignment comes from the analytics and clinical-AI responsibility; the ZIP does not provide a branch for this phase."
+  },
+  {
+    "id": "sindhu-document-extraction",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Extract and review clinical values from uploaded documents",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/risk/extract.py",
+      "src/prana/risk/extract_ai.py",
+      "src/prana/risk/ocr.py",
+      "src/prana/risk/review.py",
+      "src/prana/risk/service.py",
+      "scripts/eval_extraction.py",
+      "results/extraction_eval.json",
+      "tests/test_extract_ai.py",
+      "tests/test_ocr.py",
+      "tests/test_risk_documents.py"
+    ],
+    "note": "The extraction, OCR, review and evaluation artifacts are in the ZIP. TEAM_TASKS says the evaluation used synthetic layouts and still needs a broader de-identified set."
+  },
+  {
+    "id": "tanusree-ai-narrative",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Generate checked narratives from patient facts",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/ai/facts.py",
+      "src/prana/ai/narrative.py",
+      "src/prana/ai/schemas.py",
+      "src/prana/ai/model_router.py",
+      "tests/test_ai_first.py",
+      "tests/test_model_router.py"
+    ],
+    "note": "The Week 9 summary associates the AI-first narrative work with Tanusree. Files are present in the archive; no current branch mapping is included."
+  },
+  {
+    "id": "tanusree-ai-chat",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Answer patient questions with safety checks and source facts",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/ai/ai_chat.py",
+      "src/prana/ai/chat.py",
+      "src/prana/ai/llm.py",
+      "src/prana/ai/rerank.py",
+      "src/prana/ai/knowledge.py",
+      "tests/test_llm.py",
+      "tests/test_rerank.py",
+      "tests/test_ai_first.py"
+    ],
+    "note": "The project summary assigns conversational AI to Tanusree. A source header in chat.py names Uday, so that file's individual authorship is disputed; the archive does not map this newer work to a branch."
+  },
+  {
+    "id": "tanusree-medgemma",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Connect medical-language models and explanations",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "src/prana/ai/medgemma.py",
+      "src/prana/ai/medical_explain.py",
+      "src/prana/ai/analytics_ai.py",
+      "src/prana/ai/model_router.py",
+      "scripts/check_medgemma.py",
+      "tests/test_medgemma.py",
+      "tests/test_analytics_ai.py"
+    ],
+    "note": "These AI integration files and tests are present. The project summary describes model setup as part of the AI demo; the ZIP provides no branch assignment for them."
+  },
+  {
+    "id": "tanusree-analytics-ui",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Build the analytics and clinical-facing portal views",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "web/js/analytics.js",
+      "web/js/clinical.js",
+      "web/js/architecture.js",
+      "web/js/highlight.js",
+      "web/js/homeparts.js",
+      "web/js/hubs.js",
+      "web/js/models.js",
+      "web/js/risk.js",
+      "web/css/analytics.css",
+      "web/css/hubs.css",
+      "web/css/risk.css",
+      "tests/test_analytics.py"
+    ],
+    "note": "The portal modules are present. TEAM_ROLES assigns the patient-facing experience to Tanusree; analytics values and model calculations remain Sindhu's work."
+  },
+  {
+    "id": "tanusree-upload-review-ui",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Show uploaded document values for review and correction",
+    "branch": "",
+    "status": "Done",
+    "files": [
+      "web/js/review.js",
+      "web/js/register.js",
+      "web/js/account.js",
+      "tests/test_document_store.py",
+      "tests/test_e2e_analytics.py"
+    ],
+    "note": "The UI and related tests are present. TEAM_TASKS still calls for polish, phone layout changes, and client approval, tracked as a separate open task."
+  },
+  {
+    "id": "uday-key-backup",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Protect and test backup/restore of the document-store key",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/data/docstore.py",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "TEAM_TASKS says key storage, backup, and restore steps still need a decision and test. The secret key itself is intentionally not in the ZIP."
+  },
+  {
+    "id": "uday-security-review",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Review security of admin, audit, and document endpoints",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/api/account_routes.py",
+      "src/prana/api/analytics_routes.py",
+      "src/prana/api/risk_routes.py",
+      "src/prana/data/docstore.py",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "TEAM_TASKS defines this review as outstanding: threat model, audit events, rate limits, access-denial behavior, and decision about encryption at rest."
+  },
+  {
+    "id": "uday-extraction-privacy",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Decide the privacy policy for hosted extraction AI",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/risk/extract_ai.py",
+      "docs/LLM_SETUP.md",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "TEAM_TASKS says to document whether the hosted second reader is approved, restricted, or disabled, and validate identity removal. No decision record is present."
+  },
+  {
+    "id": "uday-production-databases",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Define production database, backup, and restore operations",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "scripts/pg_local.py",
+      "docs/RUN_GUIDE.md",
+      "src/prana/data/db.py",
+      "src/prana/data/docstore.py"
+    ],
+    "note": "The code and local setup exist, but TEAM_TASKS says production backups and restore across both databases remain to be completed and tested."
+  },
+  {
+    "id": "uday-upload-browser-tests",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Cover upload, review, clinical tabs, and account editing in browser tests",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "tests/test_e2e.py",
+      "tests/test_e2e_analytics.py",
+      "tests/test_document_store.py",
+      "tests/test_account.py"
+    ],
+    "note": "Related test files exist, but the final task list reports skipped tests and explicitly calls for these browser flows."
+  },
+  {
+    "id": "uday-password-recovery",
+    "owner": "Uday Kumar Reddy Yarradoddi",
+    "task": "Add a safe account password-recovery flow",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/api/account_routes.py",
+      "tests/test_account.py"
+    ],
+    "note": "TEAM_TASKS says accounts have no recovery path. A recovery mechanism and tests are not listed as complete."
+  },
+  {
+    "id": "tanusree-user-study",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Run usability sessions on the five main areas",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "web/js/review.js",
+      "web/js/clinical.js",
+      "web/js/analytics.js"
+    ],
+    "note": "TEAM_TASKS calls for sessions with three to five people and a findings/fixes record; no completed study report appears in the archive."
+  },
+  {
+    "id": "tanusree-accessibility",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Complete manual accessibility checks",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "web/index.html",
+      "web/css/app.css",
+      "web/css/theme.css",
+      "web/css/landing.css"
+    ],
+    "note": "TEAM_TASKS calls for screen-reader, keyboard-only, 200% zoom, dark-mode, and phone checks. Automated tests do not establish these manual checks."
+  },
+  {
+    "id": "tanusree-review-polish",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Polish the document review screen",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "web/js/review.js",
+      "web/css/analytics.css",
+      "tests/test_document_store.py"
+    ],
+    "note": "The screen exists; TEAM_TASKS lists PDF preview, phone-card layout, and a client decision about adding unextracted values as unfinished."
+  },
+  {
+    "id": "tanusree-highlight-tuning",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Tune value highlighting against model outputs",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "web/js/highlight.js",
+      "web/js/chat.js",
+      "tests/test_ai_first.py"
+    ],
+    "note": "The highlight module exists. TEAM_TASKS says to review it against a sample of 20 new model outputs and apply the same behavior to chat."
+  },
+  {
+    "id": "tanusree-chat-followup",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Align chat suggestions and links with the five portal areas",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "src/prana/ai/chat.py",
+      "src/prana/ai/ai_chat.py",
+      "web/js/chat.js",
+      "web/js/homeparts.js",
+      "tests/test_ai_first.py"
+    ],
+    "note": "The chat and UI exist; TEAM_TASKS lists updating links/suggestions, removing leftover 10-year wording, and reconciling answers with Home cards."
+  },
+  {
+    "id": "tanusree-architecture-copy",
+    "owner": "Gavinnolla Tanusree Reddy",
+    "task": "Review Architecture and How it works pages with users",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "web/js/architecture.js",
+      "web/js/method.js",
+      "docs/ARCHITECTURE.md",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "Pages and docs exist; TEAM_TASKS says their clarity still needs review by an outside reader."
+  },
+  {
+    "id": "sneha-data-dictionary",
+    "owner": "Sneha Gunturu",
+    "task": "Complete the database dictionary and diagram",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "scripts/make_data_dictionary.py",
+      "docs/DATA_DICTIONARY.md",
+      "src/prana/data/db.py",
+      "src/prana/data/docstore.py"
+    ],
+    "note": "The generator and dictionary exist, but TEAM_TASKS still calls for units, conversions, lifecycle, access, retention, and an ER diagram; the diagram image is absent from the archive."
+  },
+  {
+    "id": "sneha-knowledge-signoff",
+    "owner": "Sneha Gunturu",
+    "task": "Close knowledge-source gaps and obtain clinical/source sign-off",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "config/knowledge_sources.yaml",
+      "data/knowledge/manifest.yaml",
+      "docs/KNOWLEDGE_BASE.md",
+      "scripts/fetch_medical_sources.py",
+      "scripts/fetch_who_factsheets.py",
+      "tests/test_knowledge.py"
+    ],
+    "note": "TEAM_TASKS says gaps remain and asks for licence/date checks and clinician names in approved_by. Existing sources do not prove sign-off."
+  },
+  {
+    "id": "sneha-conversion-check",
+    "owner": "Sneha Gunturu",
+    "task": "Verify units and extraction plausibility limits against lab references",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/risk/params.py",
+      "config/reference_ranges.yaml",
+      "tests/test_range_before_result.py"
+    ],
+    "note": "TEAM_TASKS calls for a checked conversion/limits table; no such completed review table is included."
+  },
+  {
+    "id": "sneha-sample-documents",
+    "owner": "Sneha Gunturu",
+    "task": "Expand the document-layout sample set",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "scripts/make_sample_documents.py",
+      "tests/test_document_store.py",
+      "tests/test_extract_ai.py",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "Generator and tests exist, but TEAM_TASKS asks for more layouts and permitted de-identified samples; the expanded validated set is not evidenced."
+  },
+  {
+    "id": "sneha-docs-update",
+    "owner": "Sneha Gunturu",
+    "task": "Update run and presentation materials for uploads and review",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "README.md",
+      "docs/RUN_GUIDE.md",
+      "docs/DEMO_GUIDE.md",
+      "docs/PranaSync_Client_Presentation.pptx",
+      "docs/PRESENTATION_SCRIPT_10MIN.md",
+      "docs/DEMO_SCRIPT_TEAM.md"
+    ],
+    "note": "The materials are present, but TEAM_TASKS says they predate uploads, document review, clinical view, and document-store changes."
+  },
+  {
+    "id": "sneha-legacy-docs",
+    "owner": "Sneha Gunturu",
+    "task": "Plan legacy-document migration and database/store consistency checks",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/data/docstore.py",
+      "src/prana/data/db.py",
+      "tests/test_document_store.py"
+    ],
+    "note": "TEAM_TASKS calls for migration of older uploads and a consistency check; no migration/check script is present in the archive."
+  },
+  {
+    "id": "sindhu-clinical-review",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Obtain clinical review of risk parameters and wording",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/risk/params.py",
+      "src/prana/risk/model.py",
+      "src/prana/ai/risk.py",
+      "config/reference_ranges.yaml",
+      "config/recommendations.yaml",
+      "docs/RISK_MODEL_AND_UPLOADS.md"
+    ],
+    "note": "TEAM_TASKS says clinician review and a signed note are outstanding. Do not present the model as clinically validated."
+  },
+  {
+    "id": "sindhu-finetune-evaluation",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Compare fine-tuned MedGemma with the untuned model",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "finetune/train_lora.py",
+      "finetune/evaluate.py",
+      "finetune/README.md",
+      "finetune/data/dataset_card.json"
+    ],
+    "note": "Training/evaluation scripts exist, but TEAM_TASKS asks for an authorized GPU run, a comparative results table, and a clinician decision; no such result is included."
+  },
+  {
+    "id": "sindhu-extraction-eval",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Broaden evaluation of extracted medical values",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "scripts/eval_extraction.py",
+      "results/extraction_eval.json",
+      "tests/test_extract_ai.py",
+      "tests/test_extract_polish.py",
+      "docs/ARCHITECTURE_UPLOAD.md"
+    ],
+    "note": "The current evaluation is present. TEAM_TASKS says it used made-up examples and needs permitted de-identified layouts, with recall, precision, F1, and invented-value count reported again."
+  },
+  {
+    "id": "sindhu-fairness-validation",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Recheck validation and forecast performance across age and sex groups",
+    "branch": "",
+    "status": "In progress",
+    "files": [
+      "scripts/validate.py",
+      "scripts/backtest_forecast.py",
+      "results/validation_report.md",
+      "results/forecast_backtest.json",
+      "src/prana/ai/risk.py"
+    ],
+    "note": "Validation outputs exist; TEAM_TASKS requests a fresh run and fairness/stability notes by age and sex. Existing reports do not establish that work is complete."
+  },
+  {
+    "id": "sindhu-insight-expert-set",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Score medical insights against an expert-annotated set",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "src/prana/ai/medical_explain.py",
+      "src/prana/ai/analytics_ai.py",
+      "tests/test_analytics_ai.py",
+      "docs/MEDGEMMA.md"
+    ],
+    "note": "TEAM_TASKS calls for about 50 expert-labelled cases and clinical accuracy review; no labelled evaluation set/report appears in the archive."
+  },
+  {
+    "id": "sindhu-clinical-view-review",
+    "owner": "Sindhu Padmaja Dudekula",
+    "task": "Collect clinician feedback on the clinical view",
+    "branch": "",
+    "status": "Next sprint",
+    "files": [
+      "web/js/clinical.js",
+      "web/js/analytics.js",
+      "docs/TEAM_TASKS.md"
+    ],
+    "note": "The clinical view exists, but TEAM_TASKS says clinician feedback on expected/misleading values is still needed; no review record is included."
   }
 ]
 </script><script>
-const tasks=JSON.parse(document.getElementById('seed').textContent),stages=['Done','In progress','Next sprint'],key='pranasync-task-stage-v3',repo='https://github.com/tanu-1309/PranaSync';let edits={};try{edits=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}const people=[...new Set(tasks.map(t=>t.owner))];people.forEach(n=>{let o=document.createElement('option');o.value=n;o.textContent=n;document.getElementById('who').append(o)});function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function st(t){return edits[t.id]||t.status}function getRows(){let q=document.getElementById('q').value.toLowerCase(),who=document.getElementById('who').value,s=document.getElementById('sf').value;return tasks.filter(t=>(!q||JSON.stringify(t).toLowerCase().includes(q))&&(!who||who===t.owner)&&(!s||s===st(t)))}function render(){let rows=getRows(),counts=stages.map(s=>rows.filter(t=>st(t)===s).length);document.getElementById('stats').innerHTML=[['Teammates',people.length],['Distinct tasks',rows.length],['Done',counts[0]],['In progress',counts[1]],['Next sprint',counts[2]]].map(x=>'<div class="stat"><strong>'+x[1]+'</strong>'+x[0]+'</div>').join('');let html='';stages.forEach(s=>{let group=rows.filter(t=>st(t)===s);html+='<section class="stage"><h2>'+s+' <span class="muted">('+group.length+')</span></h2>';if(!group.length){html+='<p>No matching work items.</p></section>';return}html+='<div class="tablebox"><table><thead><tr><th>Task / output</th><th>Teammate</th><th>Branch</th><th>Progress</th><th>Files in ZIP</th><th>Assignment / verification notes</th></tr></thead><tbody>';group.forEach(t=>{let fs=(t.files||[]).map(f=>'<li>'+esc(f)+(f.startsWith('team_bundles/')?' <span class="muted">(bundle path)</span>':'')+'</li>').join('');html+='<tr><td class="task">'+esc(t.task)+'</td><td>'+esc(t.owner)+'</td><td><a target="_blank" rel="noopener" href="'+repo+'/tree/'+encodeURI(t.branch)+'">'+esc(t.branch)+'</a></td><td><select class="stageedit" data-id="'+esc(t.id)+'">'+stages.map(x=>'<option'+(st(t)===x?' selected':'')+'>'+x+'</option>').join('')+'</select></td><td><details class="files"><summary>'+t.files.length+' file path(s)</summary><ul>'+fs+'</ul></details></td><td class="note">'+esc(t.note)+'</td></tr>'});html+='</tbody></table></div></section>'});document.getElementById('lists').innerHTML=html;document.querySelectorAll('.stageedit').forEach(x=>x.onchange=()=>{edits[x.dataset.id]=x.value;localStorage.setItem(key,JSON.stringify(edits));render()})}['q','who','sf'].forEach(id=>document.getElementById(id).addEventListener(id==='q'?'input':'change',render));document.getElementById('reset').onclick=()=>{edits={};localStorage.removeItem(key);render()};document.getElementById('export').onclick=()=>{let cols=['task','owner','branch','status','files','note'],quote=x=>'"'+String(x||'').replace(/"/g,'""')+'"',csv=[cols.join(','),...getRows().map(t=>cols.map(c=>quote(c==='status'?st(t):Array.isArray(t[c])?t[c].join('; '):t[c])).join(','))].join('\r\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='pranasync-work-items.csv';a.click();URL.revokeObjectURL(a.href)};render();
+const tasks=JSON.parse(document.getElementById('seed').textContent),stages=['Done','In progress','Next sprint'],key='pranasync-task-stage-v3',repo='https://github.com/tanu-1309/PranaSync';let edits={};try{edits=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}const people=[...new Set(tasks.map(t=>t.owner))];people.forEach(n=>{let o=document.createElement('option');o.value=n;o.textContent=n;document.getElementById('who').append(o)});function esc(s){return String(s||'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}function st(t){return edits[t.id]||t.status}function getRows(){let q=document.getElementById('q').value.toLowerCase(),who=document.getElementById('who').value,s=document.getElementById('sf').value;return tasks.filter(t=>(!q||JSON.stringify(t).toLowerCase().includes(q))&&(!who||who===t.owner)&&(!s||s===st(t)))}function render(){let rows=getRows(),counts=stages.map(s=>rows.filter(t=>st(t)===s).length);document.getElementById('stats').innerHTML=[['Teammates',people.length],['Distinct tasks',rows.length],['Done',counts[0]],['In progress',counts[1]],['Next sprint',counts[2]]].map(x=>'<div class="stat"><strong>'+x[1]+'</strong>'+x[0]+'</div>').join('');let html='';stages.forEach(s=>{let group=rows.filter(t=>st(t)===s);html+='<section class="stage"><h2>'+s+' <span class="muted">('+group.length+')</span></h2>';if(!group.length){html+='<p>No matching work items.</p></section>';return}html+='<div class="tablebox"><table><thead><tr><th>Task / output</th><th>Teammate</th><th>Branch</th><th>Progress</th><th>Files in ZIP</th><th>Assignment / verification notes</th></tr></thead><tbody>';group.forEach(t=>{let fs=(t.files||[]).map(f=>'<li>'+esc(f)+(f.startsWith('team_bundles/')?' <span class="muted">(bundle path)</span>':'')+'</li>').join('');html+='<tr><td class="task">'+esc(t.task)+'</td><td>'+esc(t.owner)+'</td><td>'+(t.branch?'<a target="_blank" rel="noopener" href="'+repo+'/tree/'+encodeURI(t.branch)+'">'+esc(t.branch)+'</a>':'<span class="muted">No branch recorded in archive</span>')+'</td><td><select class="stageedit" data-id="'+esc(t.id)+'">'+stages.map(x=>'<option'+(st(t)===x?' selected':'')+'>'+x+'</option>').join('')+'</select></td><td><details class="files"><summary>'+t.files.length+' file path(s)</summary><ul>'+fs+'</ul></details></td><td class="note">'+esc(t.note)+'</td></tr>'});html+='</tbody></table></div></section>'});document.getElementById('lists').innerHTML=html;document.querySelectorAll('.stageedit').forEach(x=>x.onchange=()=>{edits[x.dataset.id]=x.value;localStorage.setItem(key,JSON.stringify(edits));render()})}['q','who','sf'].forEach(id=>document.getElementById(id).addEventListener(id==='q'?'input':'change',render));document.getElementById('reset').onclick=()=>{edits={};localStorage.removeItem(key);render()};document.getElementById('export').onclick=()=>{let cols=['task','owner','branch','status','files','note'],quote=x=>'"'+String(x||'').replace(/"/g,'""')+'"',csv=[cols.join(','),...getRows().map(t=>cols.map(c=>quote(c==='status'?st(t):Array.isArray(t[c])?t[c].join('; '):t[c])).join(','))].join('\r\n'),a=document.createElement('a');a.href=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));a.download='pranasync-work-items.csv';a.click();URL.revokeObjectURL(a.href)};render();
 </script></main></body></html>
+
 
 
 
